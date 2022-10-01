@@ -11,9 +11,12 @@ As I worked on this project with a partner, I primarily worked on the web side o
 
 **This repository serves to highlight an algorithm I developed for the project that uses computer vision to process an image of notes on notebook/lined paper and output images for each line segment identified in the image; these lines would be input into a text recognition model (see credits).**
 
-See [this Python file](https://github.com/candace-sun/pencil-to-print/blob/main/new_preprocessing.py) for the full code. It primarily uses OpenCV (version 2).
+### Explanation
+The goal is to break down an entire page of lined paper that contains notes into many images of properly segmented lines of text, which consists of several steps. I wrote a Python script that primarily utilizes OpenCV. First, Python’s deskew library straightens the image; straight lines are necessary for proper cropping. Edge and contour detection is then applied in order to identify the bounding box of the paper in the image and crop out excess. It then uses a line detection algorithm, specifically a Hough transform, to find lines in the paper; finally, each line of text is then cropped from the image and saved.
 
-### Function
+See [this Python file](https://github.com/candace-sun/pencil-to-print/blob/main/new_preprocessing.py) for the full code. 
+
+### Example
 Input: image of notes on lined paper
 
 ![Input image](https://github.com/candace-sun/pencil-to-print/blob/main/testimage0.jpg) 
